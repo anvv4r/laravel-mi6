@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Person;
 
 class Status extends Model
 {
     use HasFactory;
 
-    public function person()
+    public function people()
     {
-        return $this->hasOne(Person::class);
+        return $this->hasMany(Person::class);
     }
 }
