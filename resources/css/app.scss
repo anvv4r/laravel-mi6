@@ -130,3 +130,12 @@ body>div {
         max-width: 300px;
     }
 }
+
+.mission-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+}

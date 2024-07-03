@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MI6</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite('resources/css/app.scss')
+    @vite('resources/js/app.js')
 </head>
 
 <body>
-    <div id="root">
-        @viteReactRefresh
-        @vite('resources/js/people-of-interest.jsx')
+    <div id="root"></div>
 
-    </div>
+    <!-- React app entry file script will be added -->
+    @viteReactRefresh
+    @vite('resources/js/people-of-interest.jsx')
+
 </body>
 
 </html>

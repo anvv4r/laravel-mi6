@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import UserContext from "../context/UserContext";
+import Logout from "../components/Logout";
 
-const Navigation = () => {
+const Navigation = ({ setContent }) => {
     const [collapsed, setCollapsed] = useState(false);
+
+    const { user } = useContext(UserContext);
 
     return (
         <nav className={"left-menu" + (collapsed ? " left-menu_hidden" : "")}>
@@ -22,8 +27,33 @@ const Navigation = () => {
                 </div>
 
                 <div className="left-menu__links">
-                    <a to="/">Home</a>
-                    <a to="/people-of-interest">People of interest</a>
+                    {/* <a onClick={(e) => {
+                    e.preventDefault()
+                    setContent('')
+                }}>Home</a>
+                <a onClick={(e) => {
+                    e.preventDefault()
+                    setContent('people-of-interest')
+                }}>People of interest</a>
+                <a onClick={(e) => {
+                    e.preventDefault()
+                    setContent('missions')
+                }}>Missions</a> */}
+                    <Link to="/">Home</Link>
+                    {user ? (
+                        <>
+                            <Link to="/people-of-interest">
+                                People of interest
+                            </Link>
+                            <Link to="/missions">Missions</Link>
+                            <Logout />
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/register">Register</Link>
+                            <Link to="/login">Login</Link>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>

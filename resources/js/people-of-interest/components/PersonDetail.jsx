@@ -19,7 +19,7 @@ const PersonDetail = ({ personId, setPersonId }) => {
     }, []);
 
     return (
-        <>
+        <div>
             {person ? (
                 <>
                     <button onClick={() => setPersonId(null)}>
@@ -59,7 +59,7 @@ const PersonDetail = ({ personId, setPersonId }) => {
             ) : (
                 "No person found"
             )}
-        </>
+        </div>
     );
 };
 

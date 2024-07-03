@@ -12,7 +12,6 @@ class PersonController extends Controller
     {
         $people = Person::with('aliases', 'image', 'status')->get();
         return $people;
-
     }
 
     public function show($person_id)
